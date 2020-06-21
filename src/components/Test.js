@@ -42,7 +42,7 @@ export default class Test extends Component {
         const { title, body } = this.state;
         return (
             <div>
-                <h1>This is a test component...</h1>
+                <h1>This is a test component....</h1>
                 <p>
                     <b>Title:</b> {title}
                 </p>
