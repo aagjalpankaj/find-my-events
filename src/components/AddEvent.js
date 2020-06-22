@@ -37,7 +37,7 @@ export default class AddEvent extends Component {
 
         const newEvent = {
             id: v4(),
-            name,
+            title: name,
             region,
             date
         }

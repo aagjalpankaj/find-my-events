@@ -23,8 +23,7 @@ class Event extends Component {
 
     onDeleteClick = (id, dispatch) => {
 
-        axios.delete(`http://jsonplaceholder.typicode.com/posts/${id}`, {mode: 'cors',
-        credentials: 'include'})
+        axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
         .then( res => {
             dispatch({
                 type: 'DELETE_EVENT',
@@ -67,7 +66,7 @@ class Event extends Component {
                                     <Card.Body>
                                         <ListGroup>
                                             <ListGroup.Item>Organizer ID: {event.userId}</ListGroup.Item>
-                                            <ListGroup.Item>Body: {event.body}</ListGroup.Item>
+                                            <ListGroup.Item>Event Details: {event.body}</ListGroup.Item>
                                         </ListGroup>
                                     </Card.Body>
                                 : null}
