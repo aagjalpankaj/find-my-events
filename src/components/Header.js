@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = props => {
 
@@ -9,7 +9,7 @@ const Header = props => {
 
     return (
         <Navbar bg="primary" variant="dark" className="mb-3">
-            <Navbar.Brand href="/">{branding}</Navbar.Brand>
+            <Link to="/" className="navbar-brand">{branding}</Link>
             <Nav className="mr-auto"></Nav>
             <Nav>
                 <Link to="/" className="nav-link">Home</Link>

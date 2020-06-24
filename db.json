@@ -1,0 +1,7 @@
+{
+    "events": [
+      { "id": 1, "title": "JavaScript Bootcamp", "region": "Asia", "date": "01/01/2021" },
+      { "id": 2, "title": "WP Camp", "region": "USA", "date": "03/06/2021" },
+      { "id": 3, "title": "AWS Hackathon", "region": "India", "date": "03/06/2021" }
+    ]
+}

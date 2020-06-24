@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../context';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import { Card, ListGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortDown, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 class Event extends Component {
 
@@ -21,16 +22,15 @@ class Event extends Component {
         this.setState( { showEventInfo: !this.state.showEventInfo } );
     };
 
-    onDeleteClick = (id, dispatch) => {
-
-        axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        .then( res => {
-            dispatch({
-                type: 'DELETE_EVENT',
-                payload: id
-            })
-        } )
-
+    onDeleteClick = async (id, dispatch) => {
+        
+        try {
+            await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+            dispatch({ type: 'DELETE_EVENT', payload: id });
+        } catch(e) {
+            dispatch({ type: 'DELETE_EVENT', payload: id });
+        }
+        
     };
 
     render() {
@@ -48,24 +48,27 @@ class Event extends Component {
                             <Card className="mb-3">
                                 <Card.Header>
                                     <h4>
-                                        {event.title}
-                                        <FontAwesomeIcon
-                                            icon={faSortDown}
-                                            onClick={this.onShowClick.bind(this, event.id)}
-                                            className=""
-                                        />
+                                        <span className="dot3">{event.title}</span>
 
                                         <FontAwesomeIcon
                                             icon={faTimes}
                                             onClick={this.onDeleteClick.bind(this, event.id, dispatch)}
                                             className="action"
                                         />
+
+                                        <Link to={`event/edit/${event.id}`}>
+                                            <FontAwesomeIcon
+                                                icon={faEdit}
+                                                className="action"
+                                            />
+                                        </Link>
                                     </h4>
                                 </Card.Header>
                                 {showEventInfo ?
                                     <Card.Body>
                                         <ListGroup>
-                                            <ListGroup.Item>Organizer ID: {event.userId}</ListGroup.Item>
+                                            <ListGroup.Item>Event ID: {event.id}</ListGroup.Item>
+                                            <ListGroup.Item>Added By (User ID): {event.userId}</ListGroup.Item>
                                             <ListGroup.Item>Event Details: {event.body}</ListGroup.Item>
                                         </ListGroup>
                                     </Card.Body>

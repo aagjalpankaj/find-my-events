@@ -2,7 +2,7 @@ import React from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './components/Header';
 import Events from './components/Events';
-import AddEvent from './components/AddEvent';
+import AddEditEvent from './components/AddEditEvent';
 import About from './components/About';
 import Test from './components/Test';
 import { NotFound } from './components/NotFound';
@@ -23,7 +23,8 @@ function App() {
           <Container>
             <Switch>
               <Route exact path="/" component={Events} />
-              <Route exact path="/event/add" component={AddEvent} />
+              <Route exact path="/event/add" component={AddEditEvent} />
+              <Route exact path="/event/edit/:id" component={AddEditEvent} />
               <Route exact path="/about" component={About} />
               <Route exact path="/test" component={Test} />
               <Route component={NotFound} />

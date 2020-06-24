@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Course Assessment
 
-## Available Scripts
+Building an Event Finder App in React
 
-In the project directory, you can run:
+DESCRIPTION
 
-### `npm start`
+Build a React app where users can view and promote upcoming events.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Background of the problem statement: 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You are a web developer at a company called FindMyMovies. The company has decided to launch a new app called FindMyEvents where users can view and add upcoming events in their region. bBackend development has been outsourced and frontend will be developed in-house. During sprint planning, you agree to lead this project and develop an app that will let users find events using APIs that backend engineers will provide. The tasks you are responsible for: 
 
-### `npm test`
+Building the application in React
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Setting up a JSON server for testing until backend APIs are ready
 
-### `npm run build`
+Managing the state using Redux
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You must use the following tools: 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+React: To build the application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Redux: To manage the state of components in the application
 
-### `npm run eject`
+Redux Thunk: To manage the async flow
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+JSON Server: To build a placeholder backend for app development and testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React Router: To navigate within the app using URL links
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Bootstrap: To accelerate the development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Following requirements should be met:
 
-## Learn More
+The app should be responsive.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+There should only be one source of truth for state management. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The app should have functionalities for users to create, view, and delete events.
