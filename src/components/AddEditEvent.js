@@ -18,22 +18,25 @@ export default class AddEditEvent extends Component {
 
     async componentDidMount() {
         const { id } = this.props.match.params;
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
-        const event = res.data;
+        if( id ) {
+            const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
-        this.setState({
-            id: event.id,
-            title: event.title,
-            body: event.body,
-            userId: event.userId
-        });
+            const event = res.data;
+
+            this.setState({
+                id: event.id,
+                title: event.title,
+                body: event.body,
+                userId: event.userId
+            });
+        }
     }
 
     onSubmit = async (dispatch, e) => {
         e.preventDefault();
         
-        const {title, body, userId} = this.state;
+        const { title, body, userId} = this.state;
 
         let valid = true;
         let errors = [];
@@ -59,19 +62,31 @@ export default class AddEditEvent extends Component {
             return;
         }
 
-        const newEvent = {
-            title: title,
-            body: body,
-            userId: userId
+        const theEvent = {
+            title,
+            body,
+            userId
         }
 
-        const res = await axios.post('https://jsonplaceholder.typicode.com/posts', newEvent);
+        const { id } = this.props.match.params;
 
-        dispatch({
-            type: 'ADD_EVENT',
-            payload: res.data
-        });
+        if(id) {
+            const res = await axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, theEvent);
+        
+            dispatch({
+                type: 'UPDATE_EVENT',
+                payload: res.data
+            });
+        } else {
+            const res = await axios.post('https://jsonplaceholder.typicode.com/posts', theEvent);
 
+            dispatch({
+                type: 'ADD_EVENT',
+                payload: res.data
+            });
+        }
+
+        // Clear state
         this.setState({
             title: '',
             body: '',
@@ -126,6 +141,7 @@ export default class AddEditEvent extends Component {
         
                                 <TextInputGroup
                                     label="User ID"
+                                    type="number"
                                     name="userId"
                                     placeholder="Enter user ID"
                                     value={userId}
